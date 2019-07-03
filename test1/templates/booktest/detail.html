@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>他们的路由</title>
+</head>
+<body>
+    <h2>他们的路由</h2>
+    <h3>当前书籍为: {{book.title}}</h3>
+    <h3>拥有的角色:</h3>
+    <ul>
+        {%for hero in book.heroinfo_set.all %}
+            <li>{{hero.name}}----{{hero.content}}</li>
+        {%endfor%}
+    </ul>
+    <a href="/booktest/myurl/">跳转到我的路由</a>
+</body>
+</html>

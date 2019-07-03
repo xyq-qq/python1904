@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>你的路由</title>
+</head>
+<body>
+    <h2>你的路由</h2>
+
+    <h3>我的书籍是:  {{books}}</h3>
+    <ul>
+        {%for book in books%}
+        <li>{{book.title}}</li>
+        <a href="/booktest/theyurl/{{book.id}}/">跳转到他们的路由</a>
+        {%endfor%}
+
+    </ul>
+
+</body>
+</html>

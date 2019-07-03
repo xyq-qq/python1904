@@ -49,13 +49,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+# 表明这是个根路由文件
 ROOT_URLCONF = 'test1.urls'
-
+# 在setting中配置上述文件夹为模板根目录
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,6 +80,16 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+#
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'py1904demo',
+#         'USER':'root',
+#         'PASSWORD':'root',
+#
+#     }
+# }
 
 
 # Password validation
@@ -119,3 +129,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]

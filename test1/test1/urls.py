@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.conf.urls import url,include
+# 这是项目路由配置
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url('booktest/',include('booktest.urls'))
 ]
