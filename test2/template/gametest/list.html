@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表页</title>
+</head>
+<body>
+    <h3>这是列表页</h3>
+    <h2>我的英雄有：{{heros}} </h2>
+
+    <ul>
+        {% for hero in heros %}
+            <li> {{hero.name}} </li>
+            <a href="{% url 'gametest:detail' hero.id %}">跳转到详情页</a>
+        {# 这个就是根据urls.py中的路由 进行删除操作，并且和views.py 中的视图函数对应（路由地址必须一致） #}
+            <a href="{% url 'gametest:deletehero' hero.id %}">删除英雄</a>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="{% url 'gametest:addhero' %}">添加英雄</a>
+    {# <a href="/gametest/detail/">跳转到详情页</a> #}
+
+</body>
+</html>

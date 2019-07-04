@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情页</title>
+</head>
+<body>
+    <h3>这是详情页</h3>
+    <h2>英雄是：{{hero.name}}</h2>
+
+    <ul>
+        {% for good in hero.goodsinfo_set.all %}
+        <li>{{good.name}}----{{good.type}}<a  class="btn btn-warning" href="{% url 'gametest:delete' good.id %}">删除</a></li>
+
+
+        {% endfor %}
+
+    </ul>
+    <br>
+    <a href="{% url 'gametest:addgood' hero.id %}">添加商品</a>
+
+    {# <a href="/gametest/index/">跳转到首页</a> #}
+    <a href="{% url 'gametest:index' %}">跳转到首页</a>
+</body>
+</html>
