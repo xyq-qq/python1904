@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>结果页</title>
+</head>
+<body>
+    <div class="conainer">
+        <h2>结果页</h2>
+        <h2> {{question.desc}} </h2>
+        <ul>
+            {% for choice in question.choicesinfo_set.all %}
+            <li> {{choice.desc}}----{{choice.votes}} </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'pollstest:index' %}">跳转到首页</a>
+    </div>
+</body>
+</html>

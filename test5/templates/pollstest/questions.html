@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>问题详情页</title>
+</head>
+<body>
+    <div class="container">
+        <h2>问题详情页</h2>
+        <h2>这个问题是：{{question}} </h2>
+        <form action="{% url 'pollstest:detail' question.id %}" method="post">
+            <ul>
+                {% for choice in question.choicesinfo_set.all %}
+                    <li> {{choice.desc}}</li>
+                {% if forloop.counter == 1 %}
+                    <li><input type="radio" name="choice" value="{{choice.id}}"></li>
+                {% else %}
+                    <li><input type="radio" name="choice" value="{{choice.id}}"></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            <input type="submit" value="投票">
+            <a href="{% url 'pollstest:result' question.id %}">跳转到结果界面</a>
+        </form>
+
+
+    </div>
+</body>
+</html>

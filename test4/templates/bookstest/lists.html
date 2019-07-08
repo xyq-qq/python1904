@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表页</title>
+</head>
+<body>
+<div class="container">
+    <h2>列表页</h2>
+    <h2>书籍有： {{books}} </h2>
+    <ul>
+        {% if books %}
+        {% for book in books %}
+        <li>{{forloop.counter0}}<a href="{% url 'bookstest:detail' book.id %}">{{book.name}}</a><a href="{% url 'bookstest:deletebook' book.id %}">删除</a></li>
+
+        {% endfor %}
+        {% else %}
+        <li>没有书</li>
+        {% endif %}
+        <li><br></li>
+    </ul>
+    <a href="{% url 'bookstest:addbook' %}">添加书籍</a>
+</div>
+</body>
+</html>

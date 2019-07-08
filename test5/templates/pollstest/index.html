@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    <div class="container">
+        <h2>首页</h2>
+        <h2>问题列表是： {{questions}} </h2>
+        <ul>
+            {% if questions %}
+                {% for question in questions %}
+                <li> {{question.desc}}------{{question.pub_time}} </li>
+                <li><a href="{% url 'pollstest:detail' question.id   %}">跳转到问题详情界面</a></li>
+                {% empty %}
+                <li> 问题列表为空 </li>
+                {% endfor %}
+            {% else %}
+                <li> 没有问题可以投票 </li>
+            {% endif %}
+        </ul>
+
+    </div>
+</body>
+</html>

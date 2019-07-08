@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加角色</title>
+</head>
+<body>
+    <h2>添加角色</h2>
+
+    <div class="container">
+        <h2>当前书籍是： {{book}} </h2>
+        <form action="{% url 'bookstest:addrole' book.id %}" method="post">
+            <ul>
+                <li>角色名：<input type="text" name="rolename"></li>
+                <li>介绍：<input type="text" name="rolecontent"></li>
+                <li><input type="submit" value="提交"></li>
+            </ul>
+        </form>
+
+    </div>
+</body>
+</html>
