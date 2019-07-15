@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    <div class="container">
+        <div>首页</div>
+        <div> {{questions}} </div>
+        <ul>
+            {% for q in questions %}
+            <li>  {{q.desc}}</li>
+            <li> <a href="{% url 'polls:detail' q.id %}">跳转到详情页</a> </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情页</title>
+</head>
+<body>
+    <div class="container">
+        <div>详情页</div>
+        <div>这个问题是：{{q.name}}</div>
+        <form action="" method="post">
+            <ul>
+                {% for c in question.choiceinfo_set.all %}
+                    {% if forloop == 1 %}
+                    <li><input type="radio" name="desc" value="desc" checked> {{c.desc}} </li>
+                    {% else %}
+                    <li><input type="radio" name="desc" value="desc"> {{c.desc}} </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <input src="{% url 'polls:result' c.id %}" type="submit" value="提交">
+        </form>
+
+    </div>
+</body>
+</html>
