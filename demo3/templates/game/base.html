@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+
+    <meta name="description" content="《神之刃》是全球首款3D次世代动作卡牌手游。次世代超清画面，华丽技能组合，超越1000种的炫酷战宠，为你带来真正的次世代手游。"/>
+    <meta name="keywords" content="神之刃,神之刃官网,神之刃官方网站,手机游戏,卡牌游戏,卡牌手游,动作游戏,动作手游,3D游戏,3d手游,魔幻,1080P,次世代"/>
+    {% block title %}
+    <title></title>
+    {% endblock %}
+    <link href="/static/images/favicon.ico" type="image/x-icon" rel="icon"/>
+    <link href="/static/images/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+    <link type="text/css" rel="stylesheet" href="/static/css/main_curr.css"/>
+    <script type="/static/text/javascript">
+//平台、设备和操作系统
+var system ={
+win : false,
+mac : false,
+xll : false
+};
+//检测平台
+var p = navigator.platform;
+system.win = p.indexOf("Win") == 0;
+system.mac = p.indexOf("Mac") == 0;
+system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+if(system.win||system.mac||system.xll){
+}else{
+window.location.href="http://szr.8864.com/mobile";
+}
+
+    </script>
+</head>
+<body>
+<div class="header">
+    <!--导航&下拉菜单 start-->
+    <dl id="nav">
+        <div style="height:48px; clear:both; overflow:hidden; width:10px;"></div>
+        <dt id="one-ddheader">
+            <span id="one_home" title="新闻资讯"></span>
+            <span id="one_news" title="游戏资料"></span>
+            <span id="one_gamedates" title="下载专区"></span>
+            <span id="one_download" title="帐号服务"></span>
+            <span id="one_followUs" title="关于我们"></span>
+        </dt>
+        <dd style="display: block; height:0px; opacity: 0;" id="one-ddcontent" class="c">
+            <div style="height:310px; width:1002px; margin:0 auto; position:relative;">
+                <a href="index.html" title="官网首页" class="nav_home" target="_blank"></a>
+                <ul id="two_home">
+                    <li><a href="news.html" class="ml_1_1" target="_blank"></a></li>
+                    <li><a href="news.html" class="ml_1_2" target="_blank"></a></li>
+                    <li><a href="news.html" class="ml_1_3" target="_blank"></a></li>
+                </ul>
+                <ul id="two_news">
+                    <li><a href="{% url 'game:data' %}" class="ml_2_1" target="_blank"></a></li>
+                    <li><a href="http://szr.8864.com/special/xinshou/index.html" target="_blank" class="ml_2_2"></a>
+                    </li>
+                    <li><a href="http://szr.8864.com/special/job/soldier.html" class="ml_2_3" target="_blank"></a></li>
+                    <li><a href="http://szr.8864.com/gamedatalist" class="ml_2_4" target="_blank"></a></li>
+                </ul>
+                <ul id="two_gamedates">
+                    <li><a href="http://www.8864.com/charge.php?gameId=43" class="ml_3_1" target="_blank"></a></li>
+                    <li><a href="http://www.8864.com/login.php?referer=Ucenter" class="ml_3_2" target="_blank"></a></li>
+                    <li><a href="http://www.8864.com/login.php?referer=Ucenter" class="ml_3_3" target="_blank"></a></li>
+                    <li><a href="{% url 'game:register' %}" class="ml_3_4" target="_blank"></a></li>
+                </ul>
+                <ul id="two_download">
+                    <li><a href="{% url 'game:download' %}" class="ml_5_1" target="_blank"></a></li>
+                </ul>
+                <ul id="two_followUs">
+                    <li><a href="/static/javascript:openDialog('openWin12');" class="ml_4_1"></a></li>
+                    <li><a href="http://e.t.qq.com/shenzhiren2013" class="ml_4_2" target="_blank"></a></li>
+                    <li><a href="http://weibo.com/u/3939922918" class="ml_4_3" target="_blank"></a></li>
+                    <li><a href="http://bbs.szr.8864.com/forum.php" class="ml_4_4" target="_blank"></a></li>
+                </ul>
+            </div>
+        </dd>
+    </dl>
+    <!--导航&下拉菜单 end-->
+</div>
+<!--wra start-->
+<div class="wra">
+    <div class="part1_bg">
+        <div class="p1_a">
+            <div class="p1_a1">
+                <a href="https://itunes.apple.com/cn/app/shen-zhi-ren3d/id783484211?ls=1&amp;mt=8"
+                   class="p1_a1a event_point" target="_blank" gameid="0" eventname="szr_download_ios_button"></a>
+                <a href="http://gdl1201.8864.com/szr/client/szrlk.v1.32.15.683.apk" class="p1_a1b event_point"
+                   gameid="0" eventname="szr_download_android_button"></a>
+                <a href="http://gdl1201.8864.com/szr/client/szrlk.v1.33.811.ipa" class="p1_a1c event_point" gameid="0"
+                   eventname="szr_download_ios_yy_button"></a>
+                <a href="http://www.windowsphone.com/zh-cn/store/app/%E7%A5%9E%E4%B9%8B%E5%88%83/dc530ae9-7352-4530-af27-9e59840005a9"
+                   class="p1_a1d event_point" target="_blank" gameid="0" eventname="szr_download_wp8_button"></a>
+            </div>
+            <div class="p1_a2">
+                <img src="/static/images/ewm.jpg"/>
+            </div>
+        </div>
+        {% block p1 %}
+        {% endblock %}
+    </div>
+    <!--灰色背景 start-->
+    <div class="main">
+        <!--左侧 start-->
+        <div class="m_left">
+            <div class="ml_a">
+                <a href="http://www.8864.com/charge.php?gameId=43" class="ml_btn1" target="_blank"></a>
+                <a href="http://szr.8864.com/special/xinshou/index.html" class="ml_btn2" target="_blank"></a>
+                <a href="data.html" class="ml_btn3" target="_blank"></a>
+                <a href="http://bbs.szr.8864.com" class="ml_btn4" target="_blank"></a>
+            </div>
+            <div class="ml_b"></div>
+            <div class="ml_add"></div>
+            <div class="ml_c">
+                12355704
+                <br/> 308875980
+                <br/> 305899485
+                <br/> 241399668
+                <br/>
+                <font style="color:#325b92;">336216907</font>
+            </div>
+            <!--媒体合作 start-->
+            <div class="ml_d">
+                <div class="ml_d3">
+                    <ul>
+                        <li><a href="http://www.18183.com/" target="_blank"><img
+                                src="/static/images/497n30731.jpg"/></a></li>
+                        <li><a href="http://cqzj.shouyou.com/" target="_blank"><img src="/static/images/497n47412.jpg"/></a>
+                        </li>
+                        <li><a href="http://cqzj.appgame.com/" target="_blank"><img src="/static/images/495n38597.jpg"/></a>
+                        </li>
+                        <li><a href="http://game.91.com/" target="_blank"><img src="/static/images/481n44117.jpg"/></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ml_d1" id="hbbtn"></div>
+                <div class="ml_d2" id="hbcon" style="display:none;">
+                    <div class="ml_d2_add">
+                        <a href="www.66sy.com " target="_blank">66sy</a>
+                        <a href="http://www.66u.com/" target="_blank">66U手游</a>
+                        <a href="http://haowan.lenovo.com/forum.php  " target="_blank">巨会玩游戏社区</a>
+                        <a href="http://szr.7xz.com/" target="_blank">七匣子</a>
+                        <a href="http://www.youxiduo.com/" target="_blank">游戏多</a>
+                        <a href="http://www.wankr.com.cn/" target="_blank">玩客</a>
+                        <a href="http://szr.appgame.com" target="_blank">任玩堂</a>
+                        <a href="http://www.ptbus.com" target="_blank">口袋巴士</a>
+                        <a href="http://szr.gao7.com" target="_blank">搞趣网</a>
+                        <a href="http://szr.18183.com/" target="_blank">18183</a>
+                        <a href="http://www.18touch.com" target="_blank">超好玩</a>
+                        <a href="http://www.mofang.com" target="_blank">魔方网</a>
+                        <a href="http://game.91.com/" target="_blank">91无线</a>
+                    </div>
+                </div>
+            </div>
+            <!--媒体合作 end-->
+        </div>
+        <!--左侧 end-->
+        <!--右侧 start-->
+        {% block m %}
+        {% endblock %}
+        <!--右侧 end-->
+        <br style="height:1px; overflow:hidden; clear:both;"/>
+    </div>
+    <!--灰色背景 end-->
+    {% block tss %}
+    {% endblock %}
+</div>
+<!--wra end-->
+{%  block div %}
+{%  endblock %}
+<!--微信弹窗 start-->
+<div id="openWin12" class="wx_tc" style="display:none;">
+    <input type="button" onclick="javascript:showDialog.hide()" class="closebtn2"/>
+</div>
+<!--微信弹窗 start-->
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/stat.js"></script>
+<script type="text/javascript">
+    $(function () {
+        // 设置事件点统计代码
+        $('.event_point').click(function () {
+            var gameId = $(this).attr("gameid"),
+                eventName = $(this).attr("eventname"),
+                packageName = $(this).attr("href");
+
+            // 设置事件点下载统计
+            sendDownloadStat(gameId, eventName, encodeURIComponent(packageName));
+        });
+    });
+</script>
+<script type="text/javascript" src="/static/js/main_curr.js"></script>
+<script language="javascript" src="/static/js/function.js"></script>
+<!--弹出框 start-->
+<script type="text/javascript">
+    function openDialog(myid) {
+        showDialog.show({id: myid, bgcolor: '#000', opacity: 60});
+    }
+</script>
+<script type="text/javascript" language="javascript" src="/static/js/showDialog.min.js"></script>
+<!--弹出框 end-->
+<script src="http://www.8864.com/web_footer_szr_0.html" language="JavaScript"></script>
+</body>
+</html>

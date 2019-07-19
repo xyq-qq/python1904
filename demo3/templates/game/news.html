@@ -1,0 +1,273 @@
+{%  extends 'game/base.html' %}
+{% block title  %}
+<title>新闻</title>
+<link href="/static/images/favicon.ico" type="image/x-icon" rel="icon"/>
+<link type="text/css" rel="stylesheet" href="/static/css/sub_curr.css"/>
+{% endblock %}
+{% block m %}
+<div class="sub_right">
+    <!--当前位置 start-->
+
+    <div class="sub_rtit">
+        <img src="/static/images/newslist_tit.jpg"/>
+        <div class="sub_wz">
+            您的位置：
+            <a href="index.html" target="_blank">首页</a> &gt; 新闻列表
+        </div>
+    </div>
+    <!--当前位置 end-->
+    <!--新闻列表 start-->
+    <div class="sub_rsprtit">
+        <span onmouseover="shu(1,3,4)" id="s_3_1" class="sx_3_1_1"></span>
+        <span onmouseover="shu(2,3,4)" id="s_3_2" class="sx_3_2"></span>
+        <span onmouseover="shu(3,3,4)" id="s_3_3" class="sx_3_3"></span>
+        <span onmouseover="shu(4,3,4)" id="s_3_4" class="sx_3_4"></span>
+    </div>
+    <!--全部 start-->
+    <div class="sub_rspr_con" id="table_3_1" style="display:none;">
+        <div class="sub_ra"></div>
+        <div class="sub_rb">
+            {% for i in new %}
+            <span class="sub_rb1">[活动]</span>
+            <div class="sub_rb2">
+                <a href="{% url 'game:newsdetail' i.id  %}" target="_blank"> {{ i.title }} </a>
+            </div>
+            <span class="sub_rb3">[2015/08/25]</span>
+            {% endfor %}
+            {% for i in notices %}
+            <span class="sub_rb1">[活动]</span>
+            <div class="sub_rb2">
+                <a href="{% url 'game:newsdetail' i.id  %}" target="_blank"> {{ i.title }} </a>
+            </div>
+            <span class="sub_rb3">[2015/08/2]</span>
+            {% endfor %}
+        </div>
+        <div class="sub_page">
+            <table width="0" border="0" style="margin:auto;" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td align="center">
+                    {% if page.has_previous == False %}
+                        <a style="" href="?page={{page.number}}&amp;type=1">首页</a>
+                    {% endif %}
+
+                    {% if page.has_previous %}
+                        <a style="" href="?page={{page.previous_page_number}}&amp;type=1">上一页</a>&nbsp;
+                    {% endif %}
+                    {% for i in page.paginator.page_range %}
+                        {% if i == page.number %}
+                            <a style="font-weight:bold;color:#c4434c" href="?page={{i}}&amp;type=1">{{i}}</a>&nbsp;
+                        {% else %}
+                            <a style="" href="?page={{i}}&amp;type=1">{{i}}</a>&nbsp;
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if page.has_next %}
+                         <a style="" href="?page={{page.next_page_number}}">下一页</a>
+                    {% endif %}
+                    {% if page.has_next == False %}
+                        <a style="" href="?page={{page.number}}">尾页</a>
+                    {% endif %}
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--全部 end-->
+    <!--公告 start-->
+    <div class="sub_rspr_con" id="table_3_2" style="display:none;">
+        <div class="sub_ra"></div>
+        <div class="sub_rb">
+            {% for i in notices %}
+            <span class="sub_rb1">[公告]</span>
+            <div class="sub_rb2">
+                <a href="{% url 'game:newsdetail' i.id  %}" target="_blank">{{i.title}}</a>
+            </div>
+            <span class="sub_rb3">[2015/07/07]</span>
+            {% endfor %}
+
+        </div>
+
+        <div class="sub_page">
+            <table width="0" border="0" style="margin:auto;" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td align="center">
+                        <a style="" href="http://szr.8864.com/list?page=1&amp;type=3">首页</a>
+                         <a style="" href="http://szr.8864.com/list?page=1&amp;type=3">上一页</a>&nbsp;
+
+                        <a style="font-weight:bold;color:#c4434c" href="http://szr.8864.com/list?page=1&amp;type=3">1</a>&nbsp;
+                        <a style="" href="http://szr.8864.com/list?page=2&amp;type=3">2</a>&nbsp;
+                        <a style="" href="http://szr.8864.com/list?page=3&amp;type=3">3</a>&nbsp;
+                        <a style="" href="http://szr.8864.com/list?page=4&amp;type=3">4</a>&nbsp;
+                        <a style="" href="http://szr.8864.com/list?page=5&amp;type=3">5</a>&nbsp;
+
+                        <a style="" href="http://szr.8864.com/list?page=2&amp;type=3">下一页</a>
+
+
+                        <a style="" href="http://szr.8864.com/list?page=5&amp;type=3">尾页</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--公告 end-->
+    <!--新闻 start-->
+    <div class="sub_rspr_con" id="table_3_3" style="display:none;">
+        <div class="sub_ra"></div>
+        <div class="sub_rb">
+            {% for i in page.object_list %}
+            {{i}}
+            <span class="sub_rb1">[新闻]</span>
+            <div class="sub_rb2">
+                <a href="{% url 'game:newsdetail' i.id  %}" target="_blank">{{i.title}}</a>
+            </div>
+            <span class="sub_rb3">[2015/06/24]</span>
+            {% endfor %}
+
+        </div>
+        <div class="sub_page">
+            <table width="0" border="0" style="margin:auto;" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td align="center">
+                        {% if page.has_previous == False %}
+                            <a style="" href="?page={{page.number}}&amp;type=2">首页</a>
+                        {% endif %}
+
+                        {% if page.has_previous %}
+                            <a style="" href="?page={{page.previous_page_number}}&amp;type=2">上一页</a>&nbsp;
+                        {% endif %}
+
+                        {% for i in page.paginator.page_range %}
+                            {% if i == page.number %}
+                                 <a style="font-weight:bold;color:#c4434c" href="?page={{i}}&amp;type=2">{{i}}</a>
+                            {% else %}
+                                 <a style="" href="?page={{i}}&amp;type=2">{{i}}</a>&nbsp;
+                            {% endif %}
+                        {% endfor %}
+
+
+                        {% if page.has_next %}
+                            <a style="" href="?page={{page.next_page_number}}&amp;type=2">下一页</a>&nbsp;
+                        {% endif %}
+                        {% if page.has_next %}
+                             <a style="" href="?page={{page.number}}&amp;type=2">尾页</a>
+                        {% endif %}
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--新闻 end-->
+    <!--活动 start-->
+    <div class="sub_rspr_con" id="table_3_4" style="display:none;">
+        <div class="sub_ra"></div>
+        <div class="sub_rb">
+            <span class="sub_rb1">[活动]</span>
+            <div class="sub_rb2">
+                <a href="/statics/article/1/537.html" target="_blank">《神之刃》8月25日—27日运营活动</a>
+            </div>
+            <span class="sub_rb3">[2015/08/25]</span>
+        </div>
+        <div class="sub_rb">
+            <span class="sub_rb1">[活动]</span>
+            <div class="sub_rb2">
+                <a href="/statics/article/1/535.html" target="_blank">《神之刃》8月21日—8月24日限时活动开启</a>
+            </div>
+            <span class="sub_rb3">[2015/08/21]</span>
+        </div>
+        <div class="sub_rb">
+            <span class="sub_rb1">[活动]</span>
+            <div class="sub_rb2">
+                <a href="/statics/article/1/533.html" target="_blank">《神之刃》8月18日—20日限时活动开启</a>
+            </div>
+            <span class="sub_rb3">[2015/08/18]</span>
+        </div>
+        <div class="sub_rb">
+            <span class="sub_rb1">[活动]</span>
+            <div class="sub_rb2">
+                <a href="/statics/article/1/529.html" target="_blank">《神之刃》8月14日—17日限时福利活动开启</a>
+            </div>
+            <span class="sub_rb3">[2015/08/14]</span>
+        </div>
+        <div class="sub_rb">
+            <span class="sub_rb1">[活动]</span>
+            <div class="sub_rb2">
+                <a href="/statics/article/1/527.html" target="_blank">《神之刃》8月7日—10日限时活动开启</a>
+            </div>
+            <span class="sub_rb3">[2015/08/07]</span>
+        </div>
+        <div class="sub_rb">
+            <span class="sub_rb1">[活动]</span>
+            <div class="sub_rb2">
+                <a href="/statics/article/1/523.html" target="_blank">《神之刃》7月31日—8月6日限时活动开启</a>
+            </div>
+            <span class="sub_rb3">[2015/07/31]</span>
+        </div>
+        <div class="sub_rb">
+            <span class="sub_rb1">[活动]</span>
+            <div class="sub_rb2">
+                <a href="/statics/article/1/521.html" target="_blank">《神之刃》7月24日—7月30日限时活动开启</a>
+            </div>
+            <span class="sub_rb3">[2015/07/24]</span>
+        </div>
+        <div class="sub_rb">
+            <span class="sub_rb1">[活动]</span>
+            <div class="sub_rb2">
+                <a href="/statics/article/1/517.html" target="_blank">《神之刃》7月21日—23日限时活动开启</a>
+            </div>
+            <span class="sub_rb3">[2015/07/21]</span>
+        </div>
+        <div class="sub_rb">
+            <span class="sub_rb1">[活动]</span>
+            <div class="sub_rb2">
+                <a href="/statics/article/1/515.html" target="_blank">《神之刃》7月17日—20日限时活动开启</a>
+            </div>
+            <span class="sub_rb3">[2015/07/17]</span>
+        </div>
+        <div class="sub_rb">
+            <span class="sub_rb1">[活动]</span>
+            <div class="sub_rb2">
+                <a href="/statics/article/1/513.html" target="_blank">《神之刃》7月14日—16日限时活动开启</a>
+            </div>
+            <span class="sub_rb3">[2015/07/14]</span>
+        </div>
+        <div class="sub_page">
+            <table width="0" border="0" style="margin:auto;" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td align="center"><a style="" href="http://szr.8864.com/list?page=1&amp;type=4">首页</a><a style=""
+                                                                                                              href="http://szr.8864.com/list?page=1&amp;type=4">上一页</a>&nbsp;<a
+                            style="font-weight:bold;color:#c4434c"
+                            href="http://szr.8864.com/list?page=1&amp;type=4">1</a>&nbsp;<a style=""
+                                                                                            href="http://szr.8864.com/list?page=2&amp;type=4">2</a>&nbsp;<a
+                            style="" href="http://szr.8864.com/list?page=3&amp;type=4">3</a>&nbsp;<a style=""
+                                                                                                     href="http://szr.8864.com/list?page=4&amp;type=4">4</a>&nbsp;<a
+                            style="" href="http://szr.8864.com/list?page=5&amp;type=4">5</a>&nbsp;<a style=""
+                                                                                                     href="http://szr.8864.com/list?page=6&amp;type=4">6</a>&nbsp;<a
+                            style="" href="http://szr.8864.com/list?page=7&amp;type=4">7</a> ... <a style=""
+                                                                                                    href="http://szr.8864.com/list?page=12&amp;type=4">12</a>&nbsp;<a
+                            style="" href="http://szr.8864.com/list?page=2&amp;type=4">下一页</a><a style=""
+                                                                                                 href="http://szr.8864.com/list?page=12&amp;type=4">尾页</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--活动 end-->
+    <!--新闻列表 end-->
+    <br style="height:1px; overflow:hidden; clear:both;"/>
+</div>
+
+
+{% endblock %}
+
+
+
